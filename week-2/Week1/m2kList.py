@@ -7,7 +7,7 @@ st = time.process_time()
 
 found = False
 for x in a:
-    y = K/x
+    y = K / x
     if y != x and y in a:
         found = True
         break
@@ -18,5 +18,4 @@ if not found:
     print("no pair exists")
 else:
     print(x, int(y))
-print("running time:", et-st)
-
+print("running time:", et - st)

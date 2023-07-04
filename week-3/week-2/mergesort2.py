@@ -7,12 +7,12 @@ def merge(A, p, q, r):
     # Hint: an auxiliary list is required
     # Complete the body of this function
     pass
+    # TODO: SOLUTION IS MINE/ folder
 
 
 def mergesort(A, p, r):
     # Complete the body of this function
     if len(A) > 1:
-
         middle_point = len(A) // 2
         left = a[:middle_point]
         right = a[middle_point:]

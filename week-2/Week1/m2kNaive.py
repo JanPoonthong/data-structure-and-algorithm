@@ -8,7 +8,7 @@ st = time.process_time()
 found = False
 for i in range(len(a)):
     for j in range(len(a)):
-        if i != j and a[i]*a[j] == K:
+        if i != j and a[i] * a[j] == K:
             found = True
             break
     if found:
@@ -20,5 +20,4 @@ if not found:
     print("no pair exists")
 else:
     print(a[i], a[j])
-print("running time:", et-st)
-
+print("running time:", et - st)
