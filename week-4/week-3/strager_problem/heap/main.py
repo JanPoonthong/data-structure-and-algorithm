@@ -1,4 +1,5 @@
 import math
+import time
 
 """
 input: 16 14 10 8 7 9 3 2 4 1
@@ -30,9 +31,6 @@ log (total + 1)
 1. building a heap by inserting numbers
 2. maximum or min; building a sorted list using the heap
 """
-
-A = list(map(int, input().split()))
-
 
 def has_parent(a_list, last_index):
     parent_index = last_index // 2
@@ -66,11 +64,15 @@ def debug():
     i = 1
     j = 0
     while i < math.ceil(math.log(len(A) + 1, 2)) + 1:
-        while j < (2**i) - 1 and j < len(A):
+        while j < (2 ** i) - 1 and j < len(A):
             print(A[j], end=" ")
             j += 1
         i += 1
         print()
+
+
+def build_heap(a_list, number):
+    insert(a_list, number)
 
 
 def insert(a_list, number):
@@ -95,8 +97,8 @@ def insert(a_list, number):
             right_child_of_up_up_parent_index = root
 
         if (
-            a_list[left_child_of_up_up_parent_index - 1]
-            < a_list[right_child_of_up_up_parent_index - 1]
+                a_list[left_child_of_up_up_parent_index - 1]
+                < a_list[right_child_of_up_up_parent_index - 1]
         ):
             swap(a_list, last_index - 1, left_child_of_up_up_parent_index - 1)
             last_index = left_child_of_up_up_parent_index
@@ -104,11 +106,15 @@ def insert(a_list, number):
             swap(a_list, last_index - 1, right_child_of_up_up_parent_index - 1)
             last_index = right_child_of_up_up_parent_index
 
-    debug()
-    print("--------------------")
 
+st = time.process_time()
+b = list(map(int, input().split()))
+A = []
+for i in range(len(b)):
+    build_heap(A, b[i])
+et = time.process_time()
 
-insert(A, 19)
-insert(A, 20)
-insert(A, 22)
+debug()
 print(A)
+
+print(f"Running time: {et - st}")
