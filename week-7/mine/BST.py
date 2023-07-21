@@ -22,6 +22,14 @@ class BinarySearchTree:
         else:
             return self.search_helper(node.right, data)
 
+    def remove(self, data):
+        node = self.find_node(self.root, data)
+        if node:
+            print(f"Removed {data}")
+            self.remove_helper(self.root, data)
+        else:
+            print(f"{data} could not be found")
+
     def find_node(self, node, data):
         if node is None:
             return None
@@ -32,12 +40,7 @@ class BinarySearchTree:
         else:
             return self.find_node(node.right, data)
 
-    def remove(self, data):
-        if self.search(data):
-            print(f"Removed {data}")
-            self.remove_helper(self.root, data)
-        else:
-            print(f"{data} could not be found")
+
 
     def remove_helper(self, root, data):
         if root is None:
