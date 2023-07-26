@@ -77,15 +77,6 @@ class BinarySearchTree:
         return root.key
         pass
 
-    def display(self):
-        self.display_helper(self.root)
-
-    def display_helper(self, root):
-        if root is not None:
-            self.display_helper(root.left)
-            print(root.data)
-            self.display_helper(root.right)
-
     def insert(self, node):
         self.root = self.insert_helper(self.root, node)
 
