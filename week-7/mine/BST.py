@@ -109,7 +109,10 @@ def main():
 
     search_key = 1
     search_node = tree.search(search_key)
-    print(f"Search {search_key}: {search_node.data}")
+    if search_node:
+        print(f"Search {search_key}: {search_node.data}")
+    else:
+        print(f"Search {search_key}: Not Found")
 
     remove_key = 6
     tree.remove(remove_key)
