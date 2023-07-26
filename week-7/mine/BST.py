@@ -1,5 +1,6 @@
 class Node:
-    def __init__(self, data=None):
+    def __init__(self, key, data=None):
+        self.key = key
         self.data = data
         self.left = None
         self.right = None
@@ -9,73 +10,71 @@ class BinarySearchTree:
     def __init__(self):
         self.root = None
 
-    def search(self, data):
-        return self.search_helper(self.root, data)
+    def search(self, key):
+        return self.search_helper(self.root, key)
 
-    def search_helper(self, node, data):
+    def search_helper(self, node, key):
         if node is None:
             return False
-        elif node.data == data:
-            return True
-        elif data < node.data:
-            return self.search_helper(node.left, data)
+        elif node.key == key:
+            return node
+        elif key < node.key:
+            return self.search_helper(node.left, key)
         else:
-            return self.search_helper(node.right, data)
+            return self.search_helper(node.right, key)
 
-    def remove(self, data):
-        node = self.find_node(self.root, data)
+    def remove(self, key):
+        node = self.find_node(self.root, key)
         if node:
-            print(f"Removed {data}")
-            self.remove_helper(self.root, data)
+            print(f"Removed {key}")
+            self.remove_helper(self.root, key)
         else:
-            print(f"{data} could not be found")
+            print(f"{key} could not be found")
 
-    def find_node(self, node, data):
+    def find_node(self, node, key):
         if node is None:
             return None
-        elif node.data == data:
+        elif node.key == key:
             return node
-        elif data < node.data:
-            return self.find_node(node.left, data)
+        elif key < node.key:
+            return self.find_node(node.left, key)
         else:
-            return self.find_node(node.right, data)
+            return self.find_node(node.right, key)
 
-
-
-    def remove_helper(self, root, data):
+    def remove_helper(self, root, key):
         if root is None:
             return root
-        elif data < root.data:
-            root.left = self.remove_helper(root.left, data)
-        elif data > root.data:
-            root.right = self.remove_helper(root.right, data)
+        elif key < root.key:
+            root.left = self.remove_helper(root.left, key)
+        elif key > root.key:
+            root.right = self.remove_helper(root.right, key)
         # node found
         else:
             # leaf node
             if root.left is None and root.right is None:
                 root = None
             elif root.right is not None:
-                root.data = self.successor(root)
-                root.right = self.remove_helper(root.right, root.data)
+                root.key = self.successor(root)
+                root.right = self.remove_helper(root.right, root.key)
             elif root.left is not None:
-                root.data = self.predecessor(root)
-                root.left = self.remove_helper(root.left, root.data)
+                root.key = self.predecessor(root)
+                root.left = self.remove_helper(root.left, root.key)
 
         return root
 
     @staticmethod
-    def successor(root):
-        root = root.right
-        while root.left is not None:
-            root = root.left
-        return root.data
+    def successor(node):
+        current = node.right
+        while current.left is not None:
+            current = current.left
+        return current.key
 
     @staticmethod
     def predecessor(root):
         root = root.left
         while root.right is not None:
             root = root.right
-        return root.data
+        return root.key
         pass
 
     def display(self):
@@ -94,7 +93,7 @@ class BinarySearchTree:
         if root is None:
             return node
 
-        if node.data < root.data:
+        if node.key < root.key:
             root.left = self.insert_helper(root.left, node)
         else:
             root.right = self.insert_helper(root.right, node)
@@ -111,7 +110,7 @@ class BinarySearchTree:
                 print("L----", end=" ")
                 indent += "|    "
 
-            print(str(node.data))
+            print(str(node.key))
             self.print_call(node.left, indent, False)
             self.print_call(node.right, indent, True)
 
@@ -121,12 +120,15 @@ class BinarySearchTree:
 
 def main():
     tree = BinarySearchTree()
-    data_list = [4, 2, 1, 6, 5, 7, 3]
-    for data in data_list:
-        tree.insert(Node(data))
+    key_list = [4, 2, 1, 6, 5, 7, 3]
+    data_list = ["Hello", "World", "Programmer", "New", "Jan", "Ton",
+                 "Something"]
+    for i in range(len(key_list)):
+        tree.insert(Node(key_list[i], data_list[i]))
 
     search_key = 1
-    print(f"Search {search_key}: {tree.search(search_key)}")
+    search_node = tree.search(search_key)
+    print(f"Search {search_key}: {search_node.data}")
 
     remove_key = 6
     tree.remove(remove_key)
