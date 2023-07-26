@@ -11,17 +11,7 @@ class BinarySearchTree:
         self.root = None
 
     def search(self, key):
-        return self.search_helper(self.root, key)
-
-    def search_helper(self, node, key):
-        if node is None:
-            return False
-        elif node.key == key:
-            return node
-        elif key < node.key:
-            return self.search_helper(node.left, key)
-        else:
-            return self.search_helper(node.right, key)
+        return self.find_node(self.root, key)
 
     def remove(self, key):
         node = self.find_node(self.root, key)
