@@ -65,7 +65,6 @@ class BinarySearchTree:
         while root.right is not None:
             root = root.right
         return root.key
-        pass
 
     def insert(self, node):
         self.root = self.insert_helper(self.root, node)
@@ -102,8 +101,15 @@ class BinarySearchTree:
 def main():
     tree = BinarySearchTree()
     key_list = [4, 2, 1, 6, 5, 7, 3]
-    data_list = ["Hello", "World", "Programmer", "New", "Jan", "Ton",
-                 "Something"]
+    data_list = [
+        "Hello",
+        "World",
+        "Programmer",
+        "New",
+        "Jan",
+        "Ton",
+        "Something",
+    ]
     for i in range(len(key_list)):
         tree.insert(Node(key_list[i], data_list[i]))
 
