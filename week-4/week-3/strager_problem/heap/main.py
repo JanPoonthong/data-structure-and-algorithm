@@ -29,10 +29,14 @@ class Heap:
             left_child = 2 * i + 1
             right_child = 2 * i + 2
 
-            if left_child < self.heap_size and self.compare(self.a[left_child], self.a[smallest]):
+            if left_child < self.heap_size and self.compare(
+                self.a[left_child], self.a[smallest]
+            ):
                 smallest = left_child
 
-            if right_child < self.heap_size and self.compare(self.a[right_child], self.a[smallest]):
+            if right_child < self.heap_size and self.compare(
+                self.a[right_child], self.a[smallest]
+            ):
                 smallest = right_child
 
             if smallest == i:
@@ -72,7 +76,6 @@ total = 0
 while h.heap_size > 1:
     first = h.extract()
     second = h.extract()
-    print(first, second)
     temp = first + second
     total += temp
     h.insert(temp)
