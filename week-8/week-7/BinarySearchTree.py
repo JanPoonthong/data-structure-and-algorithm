@@ -117,3 +117,36 @@ class BSTree:
     # Function to call print
     def print_BSTree(self):
         self.__printCall(self.root, "", True)
+
+def main():
+    tree = BSTree()
+    key_list = [4, 2, 1, 6, 5, 7, 3]
+    data_list = [
+        "Hello",
+        "World",
+        "Programmer",
+        "New",
+        "Jan",
+        "Ton",
+        "Something",
+    ]
+    for i in range(len(key_list)):
+        tree.Tree_Insert(BST_Node(key_list[i], data_list[i]))
+
+    search_key = 1
+    search_node = tree.Tree_Search(search_key)
+    if search_node:
+        print(f"Search {search_key}: {search_node.data}")
+    else:
+        print(f"Search {search_key}: Not Found")
+
+    remove_key = 9
+    to_remove_search_node = tree.Tree_Search(remove_key)
+    if to_remove_search_node:
+        tree.Tree_Delete(to_remove_search_node)
+    else:
+        print(f"Removing {remove_key} not found")
+
+    tree.print_BSTree()
+
+main()
