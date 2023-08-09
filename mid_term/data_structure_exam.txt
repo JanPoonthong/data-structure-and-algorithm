@@ -1,0 +1,14 @@
+Data Structure and Algorithm exam briefing
+
+-Open Book exam
+-Record screen at all times, otherwise there is no grade
+-No communication with other people
+-2 programming questions and 4 essay questions
+-Essay question will say to write in the paper but you can type and upload it instead
+-Programming problems are application problems. You are given a problem that you have to solve
+-1st questions requires hash table and 2nd question requires heap or priority queue
+-Essay questions involve tracing (you have to answer what will happen)
+-Upload txt file and programming file together if you type in the essay section
+-Midterm exam rehearsal will happen
+-Essay questions include heap, binary search Tree, red black tree, sorting 
+
