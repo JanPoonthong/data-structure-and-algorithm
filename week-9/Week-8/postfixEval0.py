@@ -21,23 +21,33 @@ for token in postfix_expr:
             stack_size -= 1
             Stack.pop()
         elif token == "-":
-            Stack[stack_size - 2] = abs(
-                Stack[stack_size - 1] - Stack[stack_size - 2]
-            )
+            Stack[stack_size - 2] = Stack[stack_size - 2] - Stack[stack_size - 1]
+
             stack_size -= 1
             Stack.pop()
         elif token == "*":
             Stack[stack_size - 2] = (
-                Stack[stack_size - 1] * Stack[stack_size - 2]
+                Stack[stack_size - 2] * Stack[stack_size - 1]
             )
             stack_size -= 1
             Stack.pop()
         elif token == "/":
             Stack[stack_size - 2] = (
-                Stack[stack_size - 1] / Stack[stack_size - 2]
+                Stack[stack_size - 2] / Stack[stack_size - 1]
             )
             stack_size -= 1
             Stack.pop()
-        print(Stack)
+        elif token == "^":
+            Stack[stack_size - 2] = (
+                Stack[stack_size - 2] ** Stack[stack_size - 1]
+            )
+            stack_size -= 1
+            Stack.pop()
+        elif token == "%":
+            Stack[stack_size - 2] = (
+                Stack[stack_size - 2] % Stack[stack_size - 1]
+            )
+            stack_size -= 1
+            Stack.pop()
 
 print("%.1f" % Stack[0])
