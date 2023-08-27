@@ -1389,3 +1389,51 @@ main()
 Why does using Red-Black Tree is significantly faster than using Binary Search Tree?
 
 Red-black trees are significantly faster than binary search trees in the worst case. This is because red-black trees are self-balancing, which means that they always maintain a logarithmic height. Binary search trees, on the other hand, are not self-balancing, and their height can grow to be linear in the worst case.
+
+**Binary Search Tree can be either balanced and unbalanced**
+
+```
+    20
+   /  \
+  18   22
+ /    /  \
+17   23  46
+           \
+           56
+```
+
+In this representation, each node contains a time value, and the left subtree
+of a node contains values less than the node's value, while the right subtree
+contains values greater than the node's value. This binary search tree ensures
+that the tree remains balanced and allows for efficient insertion and search
+operations.
+
+How can Binary search can be O(n log n)?
+
+Yes, binary search can be O(n log n) in the worst case. This is because, if the
+array is not sorted, the binary search algorithm will have to iterate through
+the entire array, comparing each element to the value being searched for. In
+this case, the time complexity of the binary search algorithm will be O(n log
+n), where n is the size of the array.  However, in the best case, the binary
+search algorithm will only need to make log n comparisons, where log n is the
+logarithm of the number of elements in the array. This is because, at each
+step, the binary search algorithm can eliminate half of the elements in the
+array, which means that the number of elements remaining in the array is
+halved.  The average case time complexity of binary search is O(log n), which
+means that it is typically much faster than other search algorithms, such as
+linear search. However, the worst case time complexity of O(n log n) can be a
+problem if the array is not sorted.  Here is an example of how binary search
+can be O(n log n) in the worst case: Suppose we have an array of 10 elements,
+and the value we are searching for is not in the array. The binary search
+algorithm will start by comparing the value to the middle element of the array.
+If the value is less than the middle element, the algorithm will eliminate the
+right half of the array. If the value is greater than the middle element, the
+algorithm will eliminate the left half of the array.  The algorithm will
+continue to divide the array in half until it reaches a point where the value
+is either found or the array is empty. In this case, the algorithm will have to
+iterate through the entire array, making 10 comparisons.  The time complexity
+of the binary search algorithm in this case is O(n log n), where n is the size
+of the array. In practice, binary search is typically much faster than O(n log
+n), because the array is usually sorted. However, it is important to be aware
+of the worst case time complexity of binary search, so that you can choose the
+appropriate algorithm for your specific problem.
