@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def set_matrix(USER_INPUT_ROW):
     matrix = []
     for i in range(USER_INPUT_ROW):

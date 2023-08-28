@@ -1,0 +1,149 @@
+1) Graph must have vertex and edges
+
+2) Navigation System, you can represent how to get to location by graph(directed graph)
+    For example: if a person want to get point A to point B then you can use direct graph for pointing the direction to get the destination 
+
+3) Social network friend list, you can represent a person friends by using graph(undirected graph)
+    For example: Person A <-> Person B
+                Mean Person A is a friend of Person B, vice versa
+
+4) "Graph is connected" means there are edges which are connected in topological space
+    For example:
+        there is path from any point to any other point in the graph
+
+5) "Fully connected" means all vertices is connected to every other vertices by an unique edge
+
+6) Yes, tree is a connected graph and acyclic graphs(has no cycles)
+
+7) A tree is a connected graph and acyclic graph which has no cycles but normal "graph"
+could have a cycles
+
+8) Rooted tree is a tree in which special labeled vertex is put to be the root.
+
+9) nodes without child nodes
+
+10) There are n - 1 edges on n node
+
+11) There are n - 1 path for n node
+
+12) Weighted graph means there is a weight or a value on the edge to be consider.
+
+13)
+Edge list
+    a) 
+        {{1, 0}
+        {1, 2}
+        {2, 3}
+        {3, 1}}
+    b) 
+        [1, 2]
+        [1, 3]
+        [3, 2]
+        [3, 4]
+        [4, 3]
+    c)
+        [v1, v2, 5]    
+        [v1, v3, 6]    
+
+        [v2, v1, 5]    
+        [v2, v3, 8]    
+        [v2, v4, 3]    
+        [v2, v5, 4]    
+
+        [v3, v1, 6]
+        [v3, v2, 8]
+        [v3, v5, 6]
+
+        [v4, v2, 3]
+        [v4, v5, 3]
+        [v4, v6, 7]
+
+        [v5, v3, 6]
+        [v5, v2, 4]
+        [v5, v4, 3]
+        [v5, v6, 7]
+
+        [v6, v4, 7]
+        [v6, v5, 6]
+
+    d)
+        [F, N, 33]
+        [F, A, 43]
+
+        [N, F, 11]
+        [N, B, 22]
+
+        [A, B, 14]
+
+        [B, F, 13]
+        [B, D, 23]
+
+        [D, A, 5]
+
+Collection of adjacency list
+
+    a)
+       1 = [0, 2, 3]
+
+       2 = [1, 3]
+
+       3 = [1, 2]
+
+       0 = [1]
+    
+    b)
+        2 = []
+
+        1 = [2, 3]
+
+        3 = [2, 4]
+
+        4 = [3]
+    
+    c)
+        v1 = [(v2, 5), (v3, 6)]
+
+        v2 = [(v1, 5), (v3, 8), (v5, 4), (v4, 3)]
+
+        v3 = [(v1, 6), (v2, 8), (v5, 6)]
+
+        v4 [(v2, 3), (v5, 3), (v6, 7)]
+
+        v5 = [(v3, 6), (v2, 4), (v4, 3), (v6, 7)]
+
+        v6 = [(v5, 7), (v4, 7)]
+    
+    d)
+        A = [B, 14]
+
+        B = [(F, 13), (D, 23)]
+
+        D = [(A, 5)]
+
+        F = [(N, 33), (A, 43)]
+
+        N = [(F, 11), (B, 22)]
+
+adjacency matrix
+    a)
+           0 1 2 3
+        0 [0 1 0 0]
+        1 [1 0 1 1]
+        2 [0 1 0 1]
+        3 [0 1 1 0]
+
+    b)
+           1 2 3 4
+        1 [0 1 1 0]
+        2 [0 0 0 0]
+        3 [0 1 0 1]
+        4 [0 0 1 0]
+
+    c)
+            v1 v2 v3 v4 v5 v6
+        v1 [0  5  6  0  0  0 ]
+        v2 [5  0  8  3  4  0 ]
+        v3 [6  8  0  0  6  0 ]
+        v4 [0  3  0  0  3  7 ]
+        v5 [0  4  6  3  0  7 ]
+        v6 [0  0  0  7  7  0 ]
