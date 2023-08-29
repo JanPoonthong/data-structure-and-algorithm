@@ -1,6 +1,6 @@
-n = int(input(""))
-for i in range(1, n + 1):
-    print(i)
+# n = int(input(""))
+# for i in range(1, n + 1):
+#     print(i)
 
 list_of_integer = [int(i) for i in input("").split(" ")]
 print(list_of_integer)
