@@ -1,0 +1,6 @@
+#Vertices #Edges
+from_vertex to_vertex weight
+...
+
+
+(vertex number starts at 0)
