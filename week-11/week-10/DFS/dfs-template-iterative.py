@@ -35,29 +35,6 @@ def print_call():
 
         print("%d %5s" % (v + 1, color[v]), dv, fv, pv)
 
-# [[1, 2], [], [1, 3], [2]]
-
-
-# def dfs_visit(vertex):
-#     global time, d
-#     time += 1
-#     d[vertex] = time
-#     color[vertex] = "GREY"               # mark u as visited
-#
-#     for vertex_inside_adj in adj_list[vertex]:
-#         if color[vertex_inside_adj] == "WHITE":     # if v is unvisited
-#             p[vertex_inside_adj] = vertex                # mark parent of the v as u
-#             dfs_visit(vertex_inside_adj)            # dfs-visit v
-#
-#     color[vertex] = "BLACK"              # mark u as explored
-#     time += 1                       # increment time
-#     f[vertex] = time                     # store the time at u's finish_time
-#
-#
-# for each_vertex in range(V):
-#     if color[each_vertex] == "WHITE":         # dfs-visit for every unvisited u
-#         dfs_visit(each_vertex)
-
 visited = []
 queue = []
 node = 0

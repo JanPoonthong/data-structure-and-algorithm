@@ -1,4 +1,5 @@
 graph_type = input()
+
 V,E = map(int, input().split())
 adj_list = [[] for v in range(V)]
 for i in range(E):
