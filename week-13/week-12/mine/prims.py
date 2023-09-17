@@ -1,16 +1,19 @@
 import heap_code
 
+
 def convert_to_undirected(graph):
     undirected_graph = {}
 
     for node in range(1, len(graph) + 1):
         for i in graph[node]:
-            if i[1] not in undirected_graph:
-                undirected_graph[i[1]] = [(i[0], i[1], i[2])]
-                undirected_graph[i[1]].append((i[1], i[0], i[2]))
+            node1, node2 = i[0], i[1]
+            weight = i[2]
+            if node2 not in undirected_graph:
+                undirected_graph[node2] = [(node1, node2, weight),
+                                           (node2, node1, weight)]
             else:
-                undirected_graph[i[1]].append((i[0], i[1], i[2]))
-                undirected_graph[i[1]].append((i[1], i[0], i[2]))
+                undirected_graph[node2].extend(
+                    [(node1, node2, weight), (node2, node1, weight)])
 
     return undirected_graph
 
