@@ -4,7 +4,7 @@ import heap_code
 def convert_to_undirected(graph):
     undirected_graph = {}
 
-    for node in range(1, len(graph) + 1):
+    for node in list(graph.keys()):
         for i in graph[node]:
             node1, node2 = i[0], i[1]
             weight = i[2]
@@ -93,6 +93,7 @@ def prims(data, starting_node):
 
 def main():
     vertex, data = read_input()
+    print(data)
     data = convert_to_undirected(data)
     mst, total_weight = prims(data, 1)
 

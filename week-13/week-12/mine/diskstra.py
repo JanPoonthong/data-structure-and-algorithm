@@ -62,9 +62,6 @@ def main():
     vertex, data = read_input()
     shortest_paths = diskstra_heap(data)
 
-    # Calculate the total weight of the minimum spanning tree (MST)
-    total_weight = sum(shortest_paths.values())
-
-    print(total_weight)
+    print(f'Shortest path from 1: {shortest_paths}')
 
 main()
