@@ -20,19 +20,11 @@ def valid(row, column, edge, vertex, data):
         return False
 
 
-def find_one_in_data():
-    global data
-    for i in range(len(data)):
-        for j in range(len(data[i])):
-            if data[i][j] == 1:
-                return (i, j)
-
-
-def bfs(vertex, edge):
+def bfs(vertex, edge, i, j):
     global list_count, data
 
     count = 1
-    queue = [find_one_in_data()]
+    queue = [(i, j)]
     visited = set()
 
     while queue:
@@ -60,12 +52,12 @@ def bfs(vertex, edge):
 
 def main():
     global list_count, data
+
     vertex, edge = read_input()
-    while True:
-        if any(1 in sublist for sublist in data):
-            bfs(vertex, edge)
-        else:
-            break
+    for i in range(len(data)):
+        for j in range(len(data[i])):
+            if data[i][j] == 1:
+                bfs(vertex, edge, i, j)
 
     print(max(list_count))
 
