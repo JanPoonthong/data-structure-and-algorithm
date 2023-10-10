@@ -1,5 +1,9 @@
 import numpy as np
 
+"""
+reads an edge list as input and keep the graph in the
+program as an adjacency matrix.
+"""
 
 def set_matrix(USER_INPUT_ROW):
     matrix = []
@@ -16,6 +20,7 @@ def add_edge(matrix, input_list):
     for i in range(len(input_list)):
         if i == 0:
             continue
+        # 1 because there no weight if there is weight so you have to replace 1 with the weight of an edge
         matrix[input_list[i][0]][input_list[i][1]] = 1
 
     return matrix
